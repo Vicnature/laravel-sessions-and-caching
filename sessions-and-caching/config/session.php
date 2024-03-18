@@ -12,7 +12,13 @@ return [
     | This option controls the default session "driver" that will be used on
     | requests. By default, we will use the lightweight native driver but
     | you may specify any of the other wonderful drivers provided here.
-    |
+
+    // these are the supported drivers
+    // file session driver stores session data in a file within the server.It's named after the session_id.
+    //file stores session inside storage/framework/sessions.
+    //cookie-stores in a secure encrypted cookie
+    //cookie driver stores data inside a cookie in the browser.A different cookie from that with the session_id.
+
     | Supported: "file", "cookie", "database", "apc",
     |            "memcached", "redis", "dynamodb", "array"
     |
@@ -31,6 +37,8 @@ return [
     |
     */
 
+    // specifies the amount of minutes you want to hold your session.
+    // after 2 hours,the session is deleted
     'lifetime' => env('SESSION_LIFETIME', 120),
 
     'expire_on_close' => false,
@@ -46,6 +54,7 @@ return [
     |
     */
 
+    // whether you want to encrypt session data.useful when working with sensitive data
     'encrypt' => false,
 
     /*
@@ -59,6 +68,7 @@ return [
     |
     */
 
+    // defines the storage path of the sessions.
     'files' => storage_path('framework/sessions'),
 
     /*
@@ -155,6 +165,8 @@ return [
     |
     */
 
+    //used to specifiy whether cookies are sent to purely the first domain a request was sent to
+    // or to that domain and its sub-domains
     'domain' => env('SESSION_DOMAIN'),
 
     /*
@@ -167,6 +179,8 @@ return [
     | the cookie from being sent to you when it can't be done securely.
     |
     */
+
+    // determines if cookie should be sent over secure(HTTPS) connections only.
 
     'secure' => env('SESSION_SECURE_COOKIE'),
 
@@ -196,6 +210,8 @@ return [
     |
     */
 
+    // means cookie is sent only if request originates from webpage hosted on the same domain 
+    // as the cookie domain or when a user clicks a link pointing to the cookie domain.
     'same_site' => 'lax',
 
 ];
