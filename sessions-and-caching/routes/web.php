@@ -16,3 +16,7 @@ use App\Http\Controllers\PagesController;
 */
 
 Route::get('/', [PagesController::class,'index']);
+Route::get('/about',[PagesController::class,'about']);
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
