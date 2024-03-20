@@ -34,12 +34,12 @@ class PagesController extends Controller
         // );
 
         $session=SessionModel::all();
-        dd(
+        // dd(
 
-            // Session::all()
-            // displays all the contents found within the session table.
-            $session
-        );
+        //     // Session::all()
+        //     // displays all the contents found within the session table.
+        //     $session
+        // );
         return view('index');
     }
 

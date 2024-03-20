@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
+use App\Http\Controllers\CookiesController;
 
 
 /*
@@ -15,8 +16,20 @@ use App\Http\Controllers\PagesController;
 |
 */
 
+// sessions code
+
 Route::get('/', [PagesController::class,'index']);
 Route::get('/about',[PagesController::class,'about']);
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+// cookies code
+Route::get('/set-cookie',[CookiesController::class, 'setCookie']);
+Route::get('/get-cookie',[CookiesController::class, 'getCookie']);
+Route::get('/delete-cookie',[CookiesController::class, 'deleteCookie']);
+
+Route::get('/home-cookie',[CookiesController::class, 'homeCookie']);
+
+
