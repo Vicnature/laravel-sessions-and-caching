@@ -26,9 +26,15 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 
 // cookies code
+// sets a cookie
 Route::get('/set-cookie',[CookiesController::class, 'setCookie']);
+
+// retrieves cookie
 Route::get('/get-cookie',[CookiesController::class, 'getCookie']);
+
+// removes cookie
 Route::get('/delete-cookie',[CookiesController::class, 'deleteCookie']);
+
 
 Route::get('/home-cookie',[CookiesController::class, 'homeCookie']);
 
