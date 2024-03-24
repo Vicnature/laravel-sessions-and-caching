@@ -18,13 +18,14 @@ class CookiesController extends Controller
 
         // if the request has no cookie,return a view and set a cookie.Else,just return a view
         if(!request()->hasCookie('cookie_consent')){
-        // returns a view response with the cookie embedded in it.To successfully set a cookie,you must return it as a response.
+        // returns a view response with the cookie embedded in it.
+        //To successfully set a cookie,you must return it as a response.
         // set cookie called "cookie_consent",for a period of 1 minute.
         
         return response(view('welcome'))->withCookie('cookie_consent',Str::uuid(),1);
         }
         dd('cookie set');
-        return view('welcome');
+        
         
     }
 
